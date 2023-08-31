@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.example.demo.itassets.service.ITAssetsMapper">
+  	<select id="getITList">
+	    SELECT
+	    a.*,
+	    pc.*,
+	    sw.*,
+	    etc.*
+		FROM ITASSETS a
+		LEFT JOIN PCSPEC pc ON (a.assets_name LIKE '%노트북%' OR a.assets_name LIKE '%데스크탑%') AND a.spec_num = pc.spec_num
+		LEFT JOIN SWSPEC sw ON (a.assets_name LIKE '%서버%') AND a.spec_num = sw.spec_num
+		LEFT JOIN ETCSPEC etc ON a.spec_num = etc.spec_num AND a.assets_name NOT LIKE '%노트북%' AND a.assets_name NOT LIKE '%데스크탑%' AND a.assets_name NOT LIKE '%서버%'
+  	</select>
+  </mapper>
