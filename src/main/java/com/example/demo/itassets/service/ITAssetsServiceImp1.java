@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.command.ITAssetsVO;
+import com.example.demo.command.SWSpecVO;
 
 @Service("iTAssetsService")
 public class ITAssetsServiceImp1 implements ITAssetsService{
@@ -17,5 +18,11 @@ public class ITAssetsServiceImp1 implements ITAssetsService{
 	public List<ITAssetsVO> getITList() {
 		// TODO Auto-generated method stub
 		return iTAssetsMapper.getITList();
+	}
+
+	@Override
+	public int specInsert(SWSpecVO vo) {
+		// TODO Auto-generated method stub
+		return iTAssetsMapper.specInsert(vo);
 	}
 }

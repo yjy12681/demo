@@ -14,4 +14,8 @@
 		LEFT JOIN SWSPEC sw ON (a.assets_name LIKE '%서버%') AND a.spec_num = sw.spec_num
 		LEFT JOIN ETCSPEC etc ON a.spec_num = etc.spec_num AND a.assets_name NOT LIKE '%노트북%' AND a.assets_name NOT LIKE '%데스크탑%' AND a.assets_name NOT LIKE '%서버%'
   	</select>
+  	
+  	<insert id="specInsert" parameterType="com.example.demo.command.SWSpecVO">
+  		INSERT INTO SWSPEC(spec_num, sw_mfg, spec_siriel, spec_warranty) VALUES(0, #{sw_mfg}, #{spec_siriel}, #{spec_warranty} )
+  	</insert>
   </mapper>
